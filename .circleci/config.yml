@@ -24,10 +24,10 @@ jobs:
       - image: circleci/node:13.8.0
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+    requires: 
+      - say-hello
     steps:
       - checkout
-      - requires: 
-        - say-hello
       - run:
           name: "Say world"
           command: "echo , World!"
