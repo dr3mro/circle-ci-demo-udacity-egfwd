@@ -38,7 +38,8 @@ jobs:
     steps:
       - run:
           name: "Say my name"
-          command: "echo , this circle ci config was created by $MY_NAME"
+          command: |
+            echo , this circle ci config was created by $MY_NAME
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
