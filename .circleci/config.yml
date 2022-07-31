@@ -38,4 +38,4 @@ workflows:
     jobs:
       - say-hello
       - say-world
-        requires: "echo Hello"
+        requires: "Say hello"
