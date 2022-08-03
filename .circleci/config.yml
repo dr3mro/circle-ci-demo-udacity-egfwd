@@ -69,7 +69,7 @@ workflows:
       - say-myName
       - say-output:
           requires:
-            - say-output
+            - say-myName
 
 persist_to_workspace:
   root: ~
