@@ -17,6 +17,12 @@ jobs:
       - run:
           name: "make workspace"
           command: "mkdir -p /tmp/workspace/data"
+      - persist_to_workspace:
+          root: /tmp/workspace
+          paths:
+            - data/output.txt
+
+  
   say-hello:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
@@ -26,9 +32,15 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - checkout
+      - attach_workspace:
+        at: /tmp/workspace/
       - run:
           name: "Say hello"
           command: "echo Hello  > /tmp/workspace/data/output.txt"
+      - persist_to_workspace:
+          root: /tmp/workspace
+          paths:
+            - data/output.txt
   say-world:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
@@ -38,9 +50,15 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - checkout
+      - attach_workspace:
+        at: /tmp/workspace/
       - run:
           name: "Say world"
           command: "echo , World! >> /tmp/workspace/data/output.txt"
+      - persist_to_workspace:
+        root: /tmp/workspace
+        paths:
+          - data/output.txt
   say-myName:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
@@ -50,11 +68,16 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - checkout
+      - attach_workspace:
+        at: /tmp/workspace/
       - run:
           name: "Say my name"
           command: |
             echo , this circle ci config was created by $MY_NAME >> /tmp/workspace/data/output.txt
-
+      - persist_to_workspace:
+        root: /tmp/workspace
+        paths:
+          - data/output.txt
   say-output:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
@@ -64,6 +87,8 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - checkout
+      - attach_workspace:
+        at: /tmp/workspace/
       - run:
           name: "Say output"
           command: |
@@ -88,10 +113,3 @@ workflows:
           requires:
             - say-myName
 
-persist_to_workspace:
-  root: /tmp/workspace
-  paths:
-      - data/output.txt
-
-attach_workspace:
-  at: /tmp/workspace/
