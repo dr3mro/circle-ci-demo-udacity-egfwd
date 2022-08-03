@@ -2,8 +2,11 @@ version: 2.1
 commands:
   print_pipeline_id:
     description: "Simple echo command"
+    parameters:
+      to:
+        type: string
     steps:
-      - run: echo $CIRCLE_WORKFLOW_ID
+      - run: echo << parameters.to >>
 jobs:
   print_pipeline_id:
     docker:
@@ -15,5 +18,6 @@ jobs:
 workflows:
   pipeline_workflow:
     jobs:
-      - print_pipeline_id
+      - print_pipeline_id:
+        to: << pipeline.id>>
 
