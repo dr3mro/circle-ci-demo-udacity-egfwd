@@ -33,7 +33,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-        at: /tmp/workspace/
+          at: /tmp/workspace/
       - run:
           name: "Say hello"
           command: "echo Hello  > /tmp/workspace/data/output.txt"
@@ -51,7 +51,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-        at: /tmp/workspace/
+          at: /tmp/workspace/
       - run:
           name: "Say world"
           command: "echo , World! >> /tmp/workspace/data/output.txt"
@@ -69,7 +69,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-        at: /tmp/workspace/
+          at: /tmp/workspace/
       - run:
           name: "Say my name"
           command: |
@@ -88,7 +88,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-        at: /tmp/workspace/
+          at: /tmp/workspace/
       - run:
           name: "Say output"
           command: |
