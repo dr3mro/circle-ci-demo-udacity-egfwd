@@ -82,6 +82,7 @@ workflows:
           requires: 
             - say-hello
       - say-myName:
+          requires:
             - say-world
       - say-output:
           requires:
