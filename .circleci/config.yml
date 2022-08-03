@@ -20,7 +20,7 @@ jobs:
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
-            - /tmp/workspace/output.txt
+            - data/output.txt
 
   
   say-hello:
