@@ -55,7 +55,7 @@ jobs:
       - run:
           name: "Say my name"
           command: |
-            cat /tmp/workspace
+            cat /tmp/workspace/output.txt
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
