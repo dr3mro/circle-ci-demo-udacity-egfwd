@@ -82,7 +82,7 @@ workflows:
           requires: 
             - make-workspace
             - say-hello
-      - say-myName
+      - say-myName:
             - make-workspace
             - say-hello
             - say-world
