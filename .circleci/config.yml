@@ -72,9 +72,9 @@ workflows:
             - say-myName
 
 persist_to_workspace:
-  root: ~
+  root: /tmp/workspace
   paths:
       - output.txt
 
 attach_workspace:
-  at: ~
+  at: /tmp/workspace
