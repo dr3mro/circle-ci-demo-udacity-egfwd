@@ -2,20 +2,16 @@ version: 2.1
 commands:
   print_pipeline_id:
     description: "Simple echo command"
-    parameters:
-      to:
-        type: string
-        default: "Null"
     steps:
-      - run: echo << parameters.to >>
+      - run: echo $CIRCLE_WORKFLOW_ID
 jobs:
   print_pipeline_id:
     docker:
       - image: circleci/node:13.8.0
     steps:
       - checkout
-      - print_pipeline_id: 
-        to: $CIRCLE_WORKFLOW_ID
+      - print_pipeline_id
+
 workflows:
   pipeline_workflow:
     jobs:
