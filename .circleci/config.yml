@@ -16,11 +16,11 @@ jobs:
       - checkout
       - run:
           name: "make workspace"
-          command: "mkdir -p /tmp/workspace/data"
+          command: "mkdir -p /tmp/workspace/"
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
-            - data/*
+            - /tmp/workspace/output.txt
 
   
   say-hello:
