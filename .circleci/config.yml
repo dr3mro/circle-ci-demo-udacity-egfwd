@@ -80,17 +80,11 @@ workflows:
             - make-workspace
       - say-world:
           requires: 
-            - make-workspace
             - say-hello
       - say-myName:
-            - make-workspace
-            - say-hello
             - say-world
       - say-output:
           requires:
-            - make-workspace
-            - say-hello
-            - say-world
             - say-myName
 
 persist_to_workspace:
