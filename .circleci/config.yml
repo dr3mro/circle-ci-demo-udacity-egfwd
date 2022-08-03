@@ -1,16 +1,16 @@
 version: 2.1
 
 jobs:
-  say-hello:
+  print_pipeline_id:
     docker:
       - image: circleci/node:13.8.0
     steps:
       - checkout
       - run:
           name: "Say hello"
-          command: "echo Hello  > output.txt"
+          command: echo $CIRCLE_WORKFLOW_ID
 workflows:
   say-hello-workflow:
     jobs:
-      - say-hello
+      - print_pipeline_id
 
