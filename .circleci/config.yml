@@ -16,7 +16,7 @@ jobs:
       - checkout
       - run:
           name: "make workspace"
-          command: "mkdir -p /tmp/workspace/"
+          command: "mkdir -p /tmp/workspace/data && touch /tmp/workspace/data/output.txt"
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
