@@ -16,7 +16,7 @@ jobs:
       - checkout
       - run:
           name: "make workspace"
-          command: "mkdir -p /tmp/workspace"
+          command: "mkdir -p /tmp/workspace/data"
   say-hello:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
@@ -28,7 +28,7 @@ jobs:
       - checkout
       - run:
           name: "Say hello"
-          command: "echo Hello  > /tmp/workspace/output.txt"
+          command: "echo Hello  > /tmp/workspace/data/output.txt"
   say-world:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
@@ -40,7 +40,7 @@ jobs:
       - checkout
       - run:
           name: "Say world"
-          command: "echo , World! >> /tmp/workspace/output.txt"
+          command: "echo , World! >> /tmp/workspace/data/output.txt"
   say-myName:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
@@ -53,7 +53,7 @@ jobs:
       - run:
           name: "Say my name"
           command: |
-            echo , this circle ci config was created by $MY_NAME >> /tmp/workspace/output.txt
+            echo , this circle ci config was created by $MY_NAME >> /tmp/workspace/data/output.txt
 
   say-output:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
@@ -91,7 +91,7 @@ workflows:
 persist_to_workspace:
   root: /tmp/workspace
   paths:
-      - output.txt
+      - data/output.txt
 
 attach_workspace:
-  at: /tmp/workspace
+  at: /tmp/workspace/
